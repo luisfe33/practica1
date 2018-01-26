@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-controller="MyController">
+    <header ng-include="'/Templates/navbar.html'"></header>
+    <main class="main-content" ng-view>
+            @RenderBody()
+    </main>
+    <footer>
+        &copy; @DateTime.Now.Year - My ASP.NET Application
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angularjs")
+    <script src="~/Scripts/MyApp.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

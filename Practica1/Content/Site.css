@@ -1,0 +1,127 @@
+﻿
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    var(--color-blanco)-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/*/////////////////////////////////////////////////////////////*/
+:root {
+    --color-principal: #00ADB5;
+    --color-base: #303841;
+    --color-secundario: #FF5722;
+    --color-blanco: #EEEEEE;
+}
+
+body {
+    display: grid;
+    background-color: var(--color-base);
+    grid-template-areas: " h h h h h h " " c c c c c c " " c c c c c c " " c c c c c c " " c c c c c c " " f f f f f f ";
+    grid-template-columns: repeat(6,1fr);
+    /*grid-template-rows: 60px repeat(4, minmax(200px, 1fr)) 80px;*/
+    grid-template-rows: 60px repeat(4, 1fr) 80px;
+}
+
+header {
+    grid-area: h;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    background-color: var(--color-principal);
+    height: 60px;
+    font-size: 18pt;
+    font-weight: 500;
+}
+
+    .menu > li {
+        width: 200px;
+        justify-content: center;
+        align-self: center;
+    }
+
+        .menu > li:nth-child(4) {
+            margin-left: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu > li > a {
+            color: var(--color-base);
+            text-decoration: none;
+        }
+
+        .menu > li :hover {
+            color: var(--color-blanco);
+        }
+
+.main-content {
+    margin: 25px auto;
+    grid-area: c;
+    display: flex;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: center;
+    background-color: var(--color-base);
+    color: var(--color-base);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+    .main-content > .content {
+        padding: 20px 0;
+        justify-content: center;
+        background-color: var(--color-blanco);
+        padding: 30px 20px;
+        margin: 0 auto;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.80);
+        width: 500px;
+    }
+
+.content > ul {
+    list-style: none;
+}
+
+
+.form-control{
+    margin: 0 auto;
+    width: 100%;
+}
+
+    .content > input[type=search] {
+        margin: 0 auto;
+    }
+
+.formulario > button[type=submit] {
+    width: 120px;
+    margin: 0 auto !important;
+}
+
+
+footer {
+    grid-area: f;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    background-color: var(--color-secundario);
+    height: 80px;
+    font-size: 18px;
+    font-weight: 400;
+}
