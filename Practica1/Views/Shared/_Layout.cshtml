@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/Content/animate.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body ng-controller="MyController">
@@ -20,6 +22,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angularjs")
     <script src="~/Scripts/MyApp.js"></script>
+    <script src="~/Scripts/myScripts.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,34 +1,45 @@
-﻿<div class="content">
-    
-        <button class="btn btn-primary"> Por Nombre</button>
-        <button class="btn btn-secondary">Por Edad</button>
-        <br />
-        <br />
+﻿<div class="content" ng-init="GetPersonas()">
 
-        <input class="form-control" type="search" placeholder="Buscar..."/>
-        <hr />
-        <ul>
-            <li>Persona</li>
-            <li>Persona</li>
-            <li>Persona</li>
-            <li>Persona</li>
-        </ul>
+    <div class="botones">
+        <i id="icono" class="fa fa-address-book fa-4x" aria-hidden="true"></i>
+        <button class="btn btn-primary" ng-click="orderBy = Nombre"> Por Nombre</button>
+        <button class="btn btn-secondary" ng-click="orderBy = Edad">Por Edad</button>
+    </div>
+    <br />
 
-        <form class="formulario">
-            <div class="form-group">
-                <input placeholder="Nombre" class="form-control" type="text" name="Nombre" />
-            </div>
-            <div class="form-group">
-                <input placeholder="Apellido" class="form-control" type="text" name="Apellido" />
-            </div>
-            <div class="form-group">
-                <input placeholder="Edad" class="form-control" type="number" name="Edad" />
-            </div>
-            <div class="form-group">
-                <input placeholder="Color Favorito" class="form-control" type="text" name="ColorFav" />
-            </div>
+    <input class="form-control" type="search" placeholder="Buscar..." ng-model="search" />
+    <hr />
+    <ul ng-repeat="persona in Personas | filter: search">
+        <li>
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="attr nombre">{{persona.Nombre}}</span>
+            <span class="attr apellido">{{persona.Apellido}}</span>
+            <span class="attr edad">{{persona.Edad}} </span>
+            <span class="attr color-favorito">{{persona.ColorFavorito}}</span>
+            <i class="fa fa-times-circle remove" aria-hidden="true"></i>
+        </li>
+    </ul>
+    <hr />
+    <form name="formulario" class="formulario">
+        <div class="form-group" ng-class="{'has-error' : formulario.Nombre.$invalid && !formulario.Nombre.$pristine}" >
+            <input placeholder="Nombre" class="form-control" type="text" name="Nombre" ng-model="Persona.Nombre" required autocomplete="off" />
+            <p class="form-control-feedback" ng-show="formulario.Nombre.$invalid && !formulario.Nombre.$pristine" >*Este es un campo obligatorio</p>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : formulario.Apellido.$invalid && !formulario.Apellido.$pristine}">
+            <input placeholder="Apellido" class="form-control" type="text" name="Apellido" ng-model="Persona.Apellido" ng-minlength="3" required autocomplete="off" />
+            <p class="form-control-feedback" ng-show="formulario.Apellido.$invalid && !formulario.Apellido.$pristine">*Este es un campo obligatorio</p>
+            <p class="form-control-feedback" ng-show=" formulario.Apellido.$error.minlength &&!fomulario.Nombre.$pristine" >*Debe tener minimo 3 letras</p>
+        </div>
+        <div class="form-group" ng-class="{'has-error': formulario.Edad.$invalid && !formulario.Edad.$pristine}">
+            <input placeholder="Edad" class="form-control" type="number" name="Edad" ng-model="Persona.Edad" required autocomplete="off"/>
+            <p ng-show="formulario.Edad.$invalid && !formulario.Edad.$pristine">*Este campo es obligatorio</p>
+        </div>
+        <div class="form-group " ng-class="{'has-error' : formulario.ColorFavorito.$invalid && !formulario.ColorFavorito.$pristine}">
+            <input placeholder="Color Favorito" class="form-control" type="text" name="ColorFavorito" ng-model="Persona.ColorFavorito" required autocomplete="off"/>
+            <p ng-show="formulario.ColorFavorito.$invalid && !formulario.ColorFavorito.$pristine">*Este es un campo obligatorio</p>
+        </div>
 
-                <button class="btn btn-success" type="submit" >Agregar</button>
-        </form>
-   
+        <button class="btn btn-success" type="submit" ng-disabled="formulario.$invalid">Agregar <i class="fa fa-plus " aria-hidden="true"></i></button>
+    </form>
+
 </div>

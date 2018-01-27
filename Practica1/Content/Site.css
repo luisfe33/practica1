@@ -1,27 +1,4 @@
 ﻿
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    var(--color-blanco)-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-
-/*/////////////////////////////////////////////////////////////*/
 :root {
     --color-principal: #00ADB5;
     --color-base: #303841;
@@ -40,6 +17,17 @@ body {
 
 header {
     grid-area: h;
+}
+
+footer {
+    grid-area: f;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    background-color: var(--color-secundario);
+    height: 80px;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .menu {
@@ -85,10 +73,9 @@ header {
 }
 
     .main-content > .content {
-        padding: 20px 0;
         justify-content: center;
         background-color: var(--color-blanco);
-        padding: 30px 20px;
+        padding: 50px 20px;
         margin: 0 auto;
         border-radius: 15px;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.80);
@@ -99,29 +86,64 @@ header {
     list-style: none;
 }
 
-
-.form-control{
+.form-control {
     margin: 0 auto;
     width: 100%;
 }
 
-    .content > input[type=search] {
-        margin: 0 auto;
-    }
+.content > input[type=search] {
+    margin: 0 auto;
+}
 
 .formulario > button[type=submit] {
     width: 120px;
-    margin: 0 auto !important;
+    display: block;
+    margin: 0 auto;
 }
 
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: var(--color-principal) !important;
+    border-color: var(--color-principal) !important;
+}
 
-footer {
-    grid-area: f;
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+    background-color: var(--color-secundario) !important;
+    border-color: var(--color-secundario) !important;
+}
+
+.botones {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    padding-left: 20px;
-    background-color: var(--color-secundario);
-    height: 80px;
-    font-size: 18px;
-    font-weight: 400;
 }
+
+    .botones > button {
+        margin: 0 10px;
+    }
+
+    .botones > .fa-address-book {
+        margin-right: auto;
+    }
+
+.attr{
+    margin: 0 5px;
+}
+
+.remove{
+    color: var(--color-secundario);
+}
+
+.remove:hover{
+    cursor:pointer;
+}
+
+.has-error {
+    color: #f54d4d;
+}
+    .has-error input {
+        border-color: #f54d4d;
+    }
+        .has-error input:focus {
+            border-color: #f54d4d;
+            box-shadow: 0 1px 1px #f54d4d inset, 0 0 8px #f54d4d;
+        }
